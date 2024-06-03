@@ -97,7 +97,7 @@ lstm_out = 512
 model = Sequential()
 model.add(Embedding(max_words, embed_dim,input_length = X.shape[1]))
 #model.add(SpatialDropout1D(0.4))
-model.add(Bidirectional(GRU(lstm_out,recurrent_dropout=0.1)))
+model.add(Bidirectional(LSTM(lstm_out,recurrent_dropout=0.1)))
 model.add(Dense(3,activation='softmax'))
 model.compile(loss = 'categorical_crossentropy', optimizer='adam',metrics = ['accuracy'])
 print(model.summary())
